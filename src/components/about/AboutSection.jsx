@@ -118,7 +118,7 @@ export default function AboutSection() {
             ))}
           </div>
           <div className="flex flex-wrap gap-5 mt-12">
-            <motion.button
+            <motion.a href="/My-CV.pdf" download
               whileHover={{
                 scale: 1.05,
               }}
@@ -128,7 +128,7 @@ export default function AboutSection() {
               className="bg-cyan-500 hover:bg-cyan-400 text-black px-8 py-4 rounded-full font-bold shadow-[0_0_40px_rgba(34,211,238,0.4)] transition-all duration-300"
             >
               Download CV
-            </motion.button>
+            </motion.a>
 
             <motion.button
               whileHover={{

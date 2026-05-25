@@ -92,7 +92,9 @@ export default function NavBar() {
         <ul className="menu menu-horizontal px-1">{NaveLinks()}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Download Resume</a>
+        <a href="/MERN Stack Developer.pdf" download className="btn">
+          Download Resume
+        </a>
       </div>
     </div>
   );
