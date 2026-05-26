@@ -7,22 +7,28 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 export default function ProjectsSection() {
   const projects = [
     {
-      title: "E-Commerce Website",
+      title: "parcel-delivery-system",
       desc: "Full stack MERN e-commerce app with payment system.",
-      img: "https://i.ibb.co/kVBGYrqW/himonmia.png",
+      img: "/project-1.png",
       tech: ["React", "Node", "MongoDB"],
+      liveLink: "https://auth-firebase-router-bb1ac.web.app",
+      githubLink:"https://github.com/mdhimonmia64/zap-shift-client"
     },
     {
-      title: "Portfolio Website",
+      title: "Garden Community",
       desc: "Modern animated portfolio with Next.js and Tailwind.",
-      img: "https://i.ibb.co/kVBGYrqW/himonmia.png",
+      img: "/PROJECT-2.png",
       tech: ["Next.js", "Tailwind", "Framer Motion"],
+      liveLink: "https://remarkable-bavarois-4fbfd9.netlify.app",
+      githubLink: "https://github.com/mdhimonmia64/gardening-community-client1"
     },
     {
       title: "Blog Platform",
       desc: "Full featured blog system with admin dashboard.",
-      img: "https://i.ibb.co/kVBGYrqW/himonmia.png",
+      img: "/Projects-3.png",
       tech: ["Next.js", "MongoDB", "Express"],
+      liveLink: "https://bucolic-sunshine-f910cd.netlify.app",
+      githubLink: "https://github.com/mdhimonmia64/subscription-box"
     },
   ];
 
@@ -62,7 +68,7 @@ export default function ProjectsSection() {
               scale: 1.05,
               rotate: 1,
             }}
-            className="group relative bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:border-cyan-400 transition-all duration-300"
+            className="group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-xl hover:border-cyan-400 transition-all duration-300"
           >
             <div className="relative w-full h-52 overflow-hidden">
               <Image
@@ -72,7 +78,7 @@ export default function ProjectsSection() {
                 className="object-cover group-hover:scale-110 transition duration-500"
               />
 
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition" />
+              <div className="absolute inset-0 bg-black/25 group-hover:bg-black/10 transition" />
             </div>
 
             <div className="p-6">
@@ -96,7 +102,7 @@ export default function ProjectsSection() {
               <div className="flex justify-between items-center mt-6">
                 <motion.a
                   whileHover={{ scale: 1.1 }}
-                  href="#"
+                  href={project.githubLink} target="_blank"
                   className="flex items-center gap-2 text-sm text-cyan-400 hover:text-cyan-300"
                 >
                   <FaGithub /> Code
@@ -104,8 +110,8 @@ export default function ProjectsSection() {
 
                 <motion.a
                   whileHover={{ scale: 1.1 }}
-                  href="#"
-                  className="flex items-center gap-2 text-sm dark:text-white hover:text-cyan-400"
+                  href={project.liveLink} target="_blank"
+                  className="flex items-center gap-2 text-sm dark:text-white hover:text-cyan-400 "
                 >
                   Live <FaExternalLinkAlt />
                 </motion.a>

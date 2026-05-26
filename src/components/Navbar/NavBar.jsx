@@ -34,6 +34,14 @@ export default function NavBar() {
         <li>
           <Link
             className="hover:text-cyan-600 hover:font-bold dark:text-white"
+            href="#journey"
+          >
+            Journey
+          </Link>
+        </li>
+        <li>
+          <Link
+            className="hover:text-cyan-600 hover:font-bold dark:text-white"
             href="#projects"
           >
             Projects

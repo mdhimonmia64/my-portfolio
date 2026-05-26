@@ -28,6 +28,18 @@ export default function BannerPage() {
     mouseY.set(e.clientY - rect.top);
   };
 
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
+    const scrollToWork = () => {
+    document.getElementById("projects")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section
       ref={heroRef}
@@ -84,6 +96,7 @@ export default function BannerPage() {
 
           <div className="flex gap-5 mt-10 flex-wrap">
             <motion.button
+            onClick={scrollToWork}
               whileHover={{
                 scale: 1.08,
                 boxShadow: "0px 0px 30px rgba(34,211,238,0.7)",
@@ -95,6 +108,7 @@ export default function BannerPage() {
             </motion.button>
 
             <motion.button
+              onClick={scrollToContact}
               whileHover={{
                 scale: 1.08,
                 backgroundColor: "#06b6d4",
