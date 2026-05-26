@@ -34,7 +34,7 @@ export default function BannerPage() {
     });
   };
 
-    const scrollToWork = () => {
+  const scrollToWork = () => {
     document.getElementById("projects")?.scrollIntoView({
       behavior: "smooth",
     });
@@ -80,13 +80,31 @@ export default function BannerPage() {
 
           <h1 className="text-5xl md:text-7xl font-black leading-tight">
             Hi, I'm{" "}
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <motion.span
+              animate={{
+                color: [
+                  "#22d3ee",
+                  "#d46dee",
+                  "#8FFF05",
+                  "#05FFEA",
+                  "#056DFF",
+                  "#8b5cf6",
+                  "#22d3ee",
+                ],
+                transition: { duration: 4, repeat: Infinity },
+              }}
+            >
               Himon
-            </span>
+            </motion.span>
           </h1>
 
-          <h2 className="mt-6 text-2xl md:text-3xl dark:text-slate-300  font-semibold">
-            MERN Stack Developer 🚀
+          <h2 className="flex mt-6 text-2xl md:text-3xl dark:text-slate-300  font-semibold">
+            MERN Stack
+            {" Developer".split("").map((char, i) => (
+              <span key={i} className="wave-char">
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))}
           </h2>
 
           <p className="mt-6 dark:text-slate-400 text-lg leading-8 max-w-xl">
@@ -96,7 +114,7 @@ export default function BannerPage() {
 
           <div className="flex gap-5 mt-10 flex-wrap">
             <motion.button
-            onClick={scrollToWork}
+              onClick={scrollToWork}
               whileHover={{
                 scale: 1.08,
                 boxShadow: "0px 0px 30px rgba(34,211,238,0.7)",

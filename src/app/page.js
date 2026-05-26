@@ -8,7 +8,9 @@ import NavBar from "@/components/Navbar/NavBar";
 import ProjectsSection from "@/components/Projects/ProjectsSection";
 import SkillsSection from "@/components/Skills/SkillsSection";
 
+
 export default function Home() {
+
   return (
     <>
       <NavBar />

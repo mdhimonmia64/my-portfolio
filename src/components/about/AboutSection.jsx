@@ -30,13 +30,14 @@ export default function AboutSection() {
           className="flex justify-center"
         >
           <Image
-            width={430}
-            height={430}
-            src={"/my-image.png"}
+            width={530}
+            height={530}
+            src={"/mdhimonmia-remove.png"}
             alt="my-image"
             className="relative z-10 drop-shadow-[0_0_40px_rgba(34,211,238,0.7)]"
           />
         </motion.div>
+
         <motion.div
           initial={{ opacity: 0, x: 80 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -50,13 +51,13 @@ export default function AboutSection() {
           >
             About Me
           </motion.p>
-          <h1 className="mt-5 text-5xl md:text-6xl font-black leading-tight">
+          <h1 className=" text-5xl md:text-6xl font-black leading-tight">
             Passionate
             <span className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
               MERN Stack Developer
             </span>
           </h1>
-          <p className="mt-8 dark:text-slate-400 text-lg leading-9">
+          <p className=" dark:text-slate-400 text-lg leading-9">
             I’m a passionate Full Stack Developer focused on building modern,
             scalable and user-friendly web applications. I enjoy creating
             premium UI/UX experiences with React, Next.js and Tailwind CSS while
@@ -64,11 +65,11 @@ export default function AboutSection() {
             MongoDB.
           </p>
 
-          <p className="mt-6 dark:text-slate-400 text-lg leading-9">
+          <p className=" dark:text-slate-400 text-lg leading-9">
             My goal is to create fast, responsive and visually attractive
             digital products that provide real value to users and businesses.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-6">
             {[
               {
                 icon: <FaReact />,
@@ -113,12 +114,16 @@ export default function AboutSection() {
               >
                 <div className="text-4xl text-cyan-400">{skill.icon}</div>
 
-                <p className="mt-3 font-medium dark:text-slate-300">{skill.name}</p>
+                <p className="mt-3 font-medium dark:text-slate-300">
+                  {skill.name}
+                </p>
               </motion.div>
             ))}
           </div>
           <div className="flex flex-wrap gap-5 mt-12">
-            <motion.a href="/My-CV.pdf" download
+            <motion.a
+              href="/My-CV.pdf"
+              download
               whileHover={{
                 scale: 1.05,
               }}
