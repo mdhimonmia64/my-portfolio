@@ -1,6 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import toast from "react-hot-toast";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import {
   FaGithub,
   FaLinkedin,
@@ -12,6 +15,35 @@ import { SiWhatsapp } from "react-icons/si";
 import { SlLocationPin } from "react-icons/sl";
 
 export default function ContactSection() {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    setLoading(true);
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const message = form.message.value;
+    console.log({ name, email, message });
+    setTimeout(async () => {
+      try {
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        form,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      );
+      toast.success("Message sent successfully!");
+      form.reset();
+
+    } catch (error) {
+      console.log(error);
+      alert("Failed to send message");
+    }
+    setLoading(false);
+    }, 1000);
+  };
+
   return (
     <section
       className="relative py-28 dark:bg-[#050816] dark:text-white overflow-hidden"
@@ -99,10 +131,11 @@ export default function ContactSection() {
           viewport={{ once: true }}
           className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-8 shadow-2xl"
         >
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <motion.input
               whileFocus={{ scale: 1.02 }}
               type="text"
+              name="name"
               placeholder="Your Name"
               className="w-full p-4 rounded-xl bg-black/30 border border-white/10 focus:border-cyan-400 outline-none"
             />
@@ -110,6 +143,7 @@ export default function ContactSection() {
             <motion.input
               whileFocus={{ scale: 1.02 }}
               type="email"
+              name="email"
               placeholder="Your Email"
               className="w-full p-4 rounded-xl bg-black/30 border border-white/10 focus:border-cyan-400 outline-none"
             />
@@ -117,11 +151,14 @@ export default function ContactSection() {
             <motion.textarea
               whileFocus={{ scale: 1.02 }}
               rows="5"
+              name="message"
               placeholder="Your Message"
               className="w-full p-4 rounded-xl bg-black/30 border border-white/10 focus:border-cyan-400 outline-none resize-none"
             />
 
             <motion.button
+              type="submit"
+              disabled={loading}
               whileHover={{
                 scale: 1.05,
                 boxShadow: "0px 0px 30px rgba(34,211,238,0.5)",
@@ -129,7 +166,15 @@ export default function ContactSection() {
               whileTap={{ scale: 0.95 }}
               className="w-full flex items-center justify-center gap-3 bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-4 rounded-xl transition"
             >
-              Send Message <FaPaperPlane />
+              {loading ? (
+                <>
+                  <span className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></span>
+                  Sending...
+                </>
+              ) : (
+                "Send Message"
+              )}{" "}
+              <FaPaperPlane />
             </motion.button>
           </form>
         </motion.div>

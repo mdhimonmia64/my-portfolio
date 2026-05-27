@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
 import CustomCursor from "@/components/CustomCursor";
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +33,7 @@ export default function RootLayout({ children }) {
       <body>
         <Providers>       
         {children}
+        <Toaster />
         <CustomCursor />
         </Providers>
         </body>
