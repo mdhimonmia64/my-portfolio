@@ -107,12 +107,12 @@ export default function BannerPage() {
             ))}
           </h2>
 
-          <p className="mt-6 dark:text-slate-400 text-lg leading-8 max-w-xl">
+          <p className="pt-3 md:pt-6 dark:text-slate-400 text-lg leading-8 max-w-xl">
             I create modern, responsive and interactive web applications with
             React, Next.js and Tailwind CSS.
           </p>
 
-          <div className="flex gap-5 mt-10 flex-wrap">
+          <div className="flex gap-5 pt-4 md:pt-10 flex-wrap">
             <motion.button
               onClick={scrollToWork}
               whileHover={{
@@ -120,7 +120,7 @@ export default function BannerPage() {
                 boxShadow: "0px 0px 30px rgba(34,211,238,0.7)",
               }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 rounded-full bg-cyan-500 text-black font-bold"
+              className="px-5 md:px-8 py-2 md:py-4 rounded-full bg-cyan-500 text-black font-bold"
             >
               Explore Work
             </motion.button>
@@ -131,13 +131,13 @@ export default function BannerPage() {
                 scale: 1.08,
                 backgroundColor: "#06b6d4",
               }}
-              className="px-8 py-4 rounded-full border border-cyan-400 font-semibold"
+              className="px-7 md:px-8 py-2 md:py-4 rounded-full border border-cyan-400 font-semibold"
             >
               Contact Me
             </motion.button>
           </div>
 
-          <div className="flex gap-5 mt-10">
+          <div className="flex gap-5 pt-4 md:pt-10">
             {[
               {
                 icon: FaGithub,

@@ -8,6 +8,14 @@ import { FaGithub, FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 
 export default function FooterSection() {
+  const navItems = [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
+    { name: "Journey", href: "#journey" },
+    { name: "Projects", href: "#projects" },
+    { name: "Contact", href: "#contact" },
+  ];
   return (
     <footer className="relative dark:bg-[#020617] dark:text-white overflow-hidden border-t dark:border-white/10">
       <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-cyan-500/10 blur-[140px] rounded-full" />
@@ -81,23 +89,21 @@ export default function FooterSection() {
             <h3 className="text-2xl font-bold mb-8">Quick Links</h3>
 
             <div className="flex flex-col gap-5">
-              {["Home", "About", "Skills", "Projects", "Contact"].map(
-                (item, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{
-                      x: 8,
-                    }}
+              {navItems.map((item, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{
+                    x: 8,
+                  }}
+                >
+                  <Link
+                    href={item.href}
+                    className="dark:text-slate-400 hover:text-cyan-400 transition-all duration-300"
                   >
-                    <Link
-                      href="#"
-                      className="dark:text-slate-400 hover:text-cyan-400 transition-all duration-300"
-                    >
-                      {item}
-                    </Link>
-                  </motion.div>
-                ),
-              )}
+                    {item.name}
+                  </Link>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
 
@@ -112,10 +118,8 @@ export default function FooterSection() {
             <div className="flex flex-col gap-5">
               {[
                 "Frontend Development",
-                "Full Stack Web App",
                 "Responsive Design",
                 "API Integration",
-                "UI/UX Design",
               ].map((item, index) => (
                 <motion.p
                   key={index}

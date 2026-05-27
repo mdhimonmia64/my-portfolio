@@ -56,12 +56,12 @@ export default function ContactSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="text-center mb-20"
+        className="text-center mb-5 md:mb-10"
       >
         <h2 className="text-5xl md:text-6xl font-black">
           Contact <span className="text-cyan-400">Me</span>
         </h2>
-        <p className="dark:text-slate-400 mt-4">
+        <p className="dark:text-slate-400 pt-1 md:pt-4">
           Let's build something amazing together 🚀
         </p>
       </motion.div>
@@ -72,7 +72,7 @@ export default function ContactSection() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-3xl font-bold mb-6">Get in Touch 👋</h3>
+          <h3 className="text-3xl font-bold md:pb-6">Get in Touch 👋</h3>
 
           <p className="dark:text-slate-400 leading-8">
             I am always open to discussing new projects, creative ideas or
@@ -84,24 +84,23 @@ export default function ContactSection() {
             <div className="flex items-center gap-3 px-3 py-2 rounded-2xl bg-white/5 border dark:border-white/10 backdrop-blur-xl dark:text-white hover:bg-cyan-500 hover:text-black transition cursor-pointer">
               <MdOutlineEmail className="text-2xl" />
 
-              <p className="text-2xl font-medium">mdhimonmia64@gmail.com</p>
+              <p className="md:text-2xl font-medium">mdhimonmia64@gmail.com</p>
             </div>
 
             <div className="flex items-center gap-3 px-3 py-2 rounded-2xl bg-white/5 border dark:border-white/10 backdrop-blur-xl dark:text-white hover:bg-cyan-500 hover:text-black transition cursor-pointer my-2">
               <SiWhatsapp className="text-2xl" />
 
-              <p className="text-2xl font-medium">+88013-19959656</p>
+              <p className="md:text-2xl font-medium">+88013-19959656</p>
             </div>
             <div className="flex items-center gap-3 px-3 py-2 rounded-2xl bg-white/5 border dark:border-white/10 backdrop-blur-xl dark:text-white hover:bg-cyan-500 hover:text-black transition cursor-pointer">
               <SlLocationPin className="text-2xl" />
 
-              <p className="text-2xl font-medium">
+              <p className="md:text-2xl font-medium">
                 Gouripur,Mymensingh,Bangladesh
               </p>
             </div>
           </div>
-
-          <div className="flex gap-5 mt-10">
+          <div className="flex gap-3 md:gap-5 pt-3 md:pt-10">
             {[
               { icon: <FaGithub />, link: "https://github.com/mdhimonmia64" },
               { icon: <FaLinkedin />, link: "https://linkedin.com" },
@@ -116,7 +115,7 @@ export default function ContactSection() {
                   scale: 1.2,
                   rotate: 10,
                 }}
-                className="w-14 h-14 flex items-center justify-center rounded-2xl bg-white/5 border dark:border-white/10 backdrop-blur-xl text-2xl hover:bg-cyan-500 hover:text-black transition"
+                className="w-11 md:w-14 h-11 md:h-14 flex items-center justify-center rounded-2xl bg-white/5 border dark:border-white/10 backdrop-blur-xl text-2xl hover:bg-cyan-500 hover:text-black transition"
               >
                 {item.icon}
               </motion.a>

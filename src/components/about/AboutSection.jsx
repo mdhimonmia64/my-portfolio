@@ -10,6 +10,7 @@ import {
   SiMongodb,
   SiExpress,
 } from "react-icons/si";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function AboutSection() {
   return (
@@ -120,7 +121,7 @@ export default function AboutSection() {
               </motion.div>
             ))}
           </div>
-          <div className="flex flex-wrap gap-5 mt-12">
+          <div className="flex flex-wrap gap-5 pt-7 md:pt-12">
             <motion.a
               href="/My-CV.pdf"
               download
@@ -130,19 +131,24 @@ export default function AboutSection() {
               whileTap={{
                 scale: 0.95,
               }}
-              className="bg-cyan-500 hover:bg-cyan-400 text-black px-8 py-4 rounded-full font-bold shadow-[0_0_40px_rgba(34,211,238,0.4)] transition-all duration-300"
+              className="bg-cyan-500 hover:bg-cyan-400 text-black px-5 md:px-8 py-2 md:py-4 rounded-full font-bold shadow-[0_0_40px_rgba(34,211,238,0.4)] transition-all duration-300"
             >
               Download CV
             </motion.a>
-
             <motion.button
+              onClick={() => {
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
+                  toast("Let's go.....")
+              }}
               whileHover={{
                 scale: 1.05,
               }}
               whileTap={{
                 scale: 0.95,
               }}
-              className="border dark:border-white/10 hover:border-cyan-400 px-8 py-4 rounded-full font-semibold hover:bg-cyan-500/10 transition-all duration-300"
+              className="border dark:border-white/10 hover:border-cyan-400 px-7 md:px-8 py-2 md:py-4 rounded-full font-semibold hover:bg-cyan-500/10 transition-all duration-300"
             >
               Hire Me
             </motion.button>
