@@ -135,6 +135,7 @@ export default function ContactSection() {
               whileFocus={{ scale: 1.02 }}
               type="text"
               name="name"
+              required
               placeholder="Your Name"
               className="w-full p-4 rounded-xl bg-black/30 border border-white/10 focus:border-cyan-400 outline-none"
             />
@@ -143,6 +144,7 @@ export default function ContactSection() {
               whileFocus={{ scale: 1.02 }}
               type="email"
               name="email"
+              required
               placeholder="Your Email"
               className="w-full p-4 rounded-xl bg-black/30 border border-white/10 focus:border-cyan-400 outline-none"
             />
@@ -151,6 +153,7 @@ export default function ContactSection() {
               whileFocus={{ scale: 1.02 }}
               rows="5"
               name="message"
+              required
               placeholder="Your Message"
               className="w-full p-4 rounded-xl bg-black/30 border border-white/10 focus:border-cyan-400 outline-none resize-none"
             />
