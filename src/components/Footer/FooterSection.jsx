@@ -51,7 +51,7 @@ export default function FooterSection() {
 
                 {
                   icon: <FaLinkedin />,
-                  link: "https://linkedin.com",
+                  link: "https://www.linkedin.com/in/md-himon-mia-4961683b4",
                 },
 
                 {

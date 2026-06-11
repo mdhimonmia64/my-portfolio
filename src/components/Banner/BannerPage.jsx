@@ -146,7 +146,7 @@ export default function BannerPage() {
 
               {
                 icon: FaLinkedin,
-                link: "",
+                link: "https://www.linkedin.com/in/md-himon-mia-4961683b4",
               },
 
               {

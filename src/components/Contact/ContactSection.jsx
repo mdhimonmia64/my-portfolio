@@ -103,7 +103,7 @@ export default function ContactSection() {
           <div className="flex gap-3 md:gap-5 pt-3 md:pt-10">
             {[
               { icon: <FaGithub />, link: "https://github.com/mdhimonmia64" },
-              { icon: <FaLinkedin />, link: "https://linkedin.com" },
+              { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/md-himon-mia-4961683b4" },
               { icon: <FaInstagram />, link: "https://instagram.com" },
             ].map((item, i) => (
               <motion.a
