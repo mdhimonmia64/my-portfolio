@@ -15,6 +15,14 @@ export default function ProjectsSection() {
       githubLink:"https://github.com/mdhimonmia64/zap-shift-client"
     },
     {
+      title: "Cars-Doctors-Resources",
+      desc: "Car service booking and repair platform.",
+      img: "/car-service.png",
+      tech: ["React.js,Next.js", "MongoDB", "Express.js"],
+      liveLink: "https://car-doctor-resources.vercel.app",
+      githubLink: "https://github.com/mdhimonmia64/cars-doctors-resources"
+    },
+    {
       title: "Garden Community",
       desc: "Modern animated portfolio with Next.js and Tailwind.",
       img: "/PROJECT-2.png",
