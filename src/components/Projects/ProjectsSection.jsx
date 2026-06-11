@@ -26,10 +26,18 @@ export default function ProjectsSection() {
       title: "Blog Platform",
       desc: "Full featured blog system with admin dashboard.",
       img: "/Projects-3.png",
-      tech: ["Next.js", "MongoDB", "Express"],
+      tech: ["Next.js", "MongoDB", "Express.js"],
       liveLink: "https://bucolic-sunshine-f910cd.netlify.app",
       githubLink: "https://github.com/mdhimonmia64/subscription-box"
     },
+    {
+      title: "AI-Service",
+      desc: "Smart AI solutions for business needs.",
+      img: "/ai services.png",
+      tech: ["React.js,Next.js", "MongoDB", "Express.js"],
+      liveLink: "https://nextjs-app-self-nu.vercel.app",
+      githubLink: "https://github.com/mdhimonmia64/AI-Service"
+    }
   ];
 
   return (
