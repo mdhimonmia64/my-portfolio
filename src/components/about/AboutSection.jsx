@@ -28,14 +28,14 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="flex justify-center"
+          className="flex justify-center w-full px-4 sm:px-0"
         >
           <Image
             width={530}
             height={530}
             src={"/mdhimonmia-remove.png"}
             alt="my-image"
-            className="relative z-10 drop-shadow-[0_0_40px_rgba(34,211,238,0.7)]"
+            className="w-full h-auto max-w-[480px] relative z-10 drop-shadow-[0_0_40px_rgba(34,211,238,0.7)]"
           />
         </motion.div>
 
@@ -52,7 +52,7 @@ export default function AboutSection() {
           >
             About Me
           </motion.p>
-          <h1 className=" text-5xl md:text-6xl font-black leading-tight">
+          <h1 className=" text-4xl md:text-6xl font-black leading-tight">
             Passionate
             <span className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
               MERN Stack Developer
@@ -70,7 +70,21 @@ export default function AboutSection() {
             My goal is to create fast, responsive and visually attractive
             digital products that provide real value to users and businesses.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-6">
+          <motion.div 
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.08,
+                }
+              }
+            }}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-6"
+          >
             {[
               {
                 icon: <FaReact />,
@@ -107,31 +121,37 @@ export default function AboutSection() {
             ].map((skill, index) => (
               <motion.div
                 key={index}
-                whileHover={{
-                  y: -10,
-                  scale: 1.05,
+                variants={{
+                  hidden: { opacity: 0, y: 30, scale: 0.95 },
+                  show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 100 } }
                 }}
-                className="bg-white/5 border dark:border-white/10 backdrop-blur-xl rounded-2xl p-5 flex flex-col items-center justify-center text-center hover:border-cyan-400 transition-all duration-300"
+                whileHover={{
+                  y: -8,
+                  scale: 1.05,
+                  boxShadow: "0 10px 20px rgba(6,182,212,0.15)",
+                }}
+                className="bg-white/90 dark:bg-white/5 border border-slate-200 dark:border-white/10 backdrop-blur-xl rounded-2xl p-5 flex flex-col items-center justify-center text-center hover:border-cyan-400 dark:hover:border-cyan-400 shadow-sm dark:shadow-none transition-all duration-300"
               >
-                <div className="text-4xl text-cyan-400">{skill.icon}</div>
+                <div className="text-4xl text-cyan-500 dark:text-cyan-400">{skill.icon}</div>
 
-                <p className="mt-3 font-medium dark:text-slate-300">
+                <p className="mt-3 font-medium text-slate-800 dark:text-slate-200">
                   {skill.name}
                 </p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
           <div className="flex flex-wrap gap-5 pt-7 md:pt-12">
             <motion.a
               href="/My-CV.pdf"
               download
               whileHover={{
                 scale: 1.05,
+                boxShadow: "0 10px 20px rgba(6,182,212,0.3)",
               }}
               whileTap={{
                 scale: 0.95,
               }}
-              className="bg-cyan-500 hover:bg-cyan-400 text-black px-5 md:px-8 py-2 md:py-4 rounded-full font-bold shadow-[0_0_40px_rgba(34,211,238,0.4)] transition-all duration-300"
+              className="bg-cyan-500 hover:bg-cyan-400 text-black px-5 md:px-8 py-2 md:py-4 rounded-full font-bold shadow-[0_4px_20px_rgba(6,182,212,0.25)] transition-all duration-300"
             >
               Download CV
             </motion.a>
@@ -144,11 +164,13 @@ export default function AboutSection() {
               }}
               whileHover={{
                 scale: 1.05,
+                backgroundColor: "rgba(6,182,212,0.08)",
+                borderColor: "#06b6d4",
               }}
               whileTap={{
                 scale: 0.95,
               }}
-              className="border dark:border-white/10 hover:border-cyan-400 px-7 md:px-8 py-2 md:py-4 rounded-full font-semibold hover:bg-cyan-500/10 transition-all duration-300"
+              className="border border-slate-300 dark:border-white/10 dark:hover:border-cyan-400 hover:text-cyan-500 px-7 md:px-8 py-2 md:py-4 rounded-full font-semibold transition-all duration-300 cursor-pointer"
             >
               Hire Me
             </motion.button>

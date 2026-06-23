@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 import {
   FaGraduationCap,
   FaCode,
@@ -9,6 +10,21 @@ import {
 } from "react-icons/fa";
 
 export default function JourneySection() {
+  const containerRef = useRef(null);
+  
+  // Track scroll position of the timeline container
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"],
+  });
+
+  // Smooth out scroll progress
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   const journeyData = [
     {
       icon: <FaGraduationCap />,
@@ -18,7 +34,6 @@ export default function JourneySection() {
         "Started my programming journey with HTML, CSS, and JavaScript while exploring modern web technologies.",
       color: "from-cyan-400 to-blue-500",
     },
-
     {
       icon: <FaCode />,
       title: "Frontend Development",
@@ -27,7 +42,6 @@ export default function JourneySection() {
         "Built responsive and interactive UI using React.js, Tailwind CSS, and modern animation libraries.",
       color: "from-purple-400 to-pink-500",
     },
-
     {
       icon: <FaLaptopCode />,
       title: "MERN Stack Journey",
@@ -36,7 +50,6 @@ export default function JourneySection() {
         "Started building full-stack applications using MongoDB, Express.js, React, and Node.js.",
       color: "from-green-400 to-emerald-500",
     },
-
     {
       icon: <FaRocket />,
       title: "Professional Projects",
@@ -50,111 +63,83 @@ export default function JourneySection() {
   return (
     <section
       id="journey"
-      className="relative py-32 overflow-hidden bg-white dark:bg-[#050816]"
+      ref={containerRef}
+      className="relative py-32 overflow-hidden bg-slate-50 dark:bg-[#050816] transition-colors duration-500"
     >
+      {/* Dynamic Background Glowing Orbs */}
       <motion.div
         animate={{
-          x: [0, 100, 0],
-          y: [0, -80, 0],
+          x: [0, 50, 0],
+          y: [0, -50, 0],
         }}
         transition={{
           repeat: Infinity,
           duration: 10,
-          ease: "linear",
+          ease: "easeInOut",
         }}
-        className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/20 blur-[140px] rounded-full"
+        className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/10 dark:bg-cyan-500/20 blur-[140px] rounded-full pointer-events-none"
       />
-
       <motion.div
         animate={{
-          x: [0, -120, 0],
-          y: [0, 80, 0],
+          x: [0, -50, 0],
+          y: [0, 50, 0],
         }}
         transition={{
           repeat: Infinity,
           duration: 12,
-          ease: "linear",
+          ease: "easeInOut",
         }}
-        className="absolute bottom-10 right-10 w-96 h-96 bg-purple-500/20 blur-[140px] rounded-full"
+        className="absolute bottom-10 right-10 w-96 h-96 bg-purple-500/10 dark:bg-purple-500/20 blur-[140px] rounded-full pointer-events-none"
       />
 
-      {[
-        { top: "10%", left: "15%" },
-        { top: "20%", left: "80%" },
-        { top: "35%", left: "40%" },
-        { top: "50%", left: "10%" },
-        { top: "70%", left: "90%" },
-        { top: "85%", left: "35%" },
-        { top: "25%", left: "60%" },
-        { top: "65%", left: "50%" },
-      ].map((particle, i) => (
-        <motion.div
-          key={i}
-          animate={{
-            y: [0, -40, 0],
-            x: [0, 20, 0],
-            opacity: [0.3, 1, 0.3],
-            scale: [1, 1.5, 1],
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 3 + i,
-          }}
-          className="absolute w-2 h-2 rounded-full bg-cyan-400"
-          style={{
-            top: particle.top,
-            left: particle.left,
-          }}
-        />
-      ))}
-
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.015)_1px,transparent_1px),linear-gradient(to_right,rgba(0,0,0,0.015)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 80 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="text-center"
         >
           <motion.p
             animate={{
-              opacity: [0.5, 1, 0.5],
+              opacity: [0.6, 1, 0.6],
             }}
             transition={{
               repeat: Infinity,
               duration: 2,
             }}
-            className="text-cyan-500 font-semibold tracking-[6px] uppercase"
+            className="text-cyan-500 dark:text-cyan-400 font-bold tracking-[6px] uppercase text-sm"
           >
             My Journey
           </motion.p>
 
-          <h2 className="mt-4 text-5xl md:text-7xl font-black text-black dark:text-white">
+          <h2 className="mt-4 text-5xl md:text-7xl font-black text-slate-900 dark:text-white">
             Growth &
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 bg-clip-text text-transparent">
               {" "}
               Experience
             </span>
           </h2>
 
-          <p className="mt-6 max-w-3xl mx-auto text-slate-700 dark:text-slate-400 text-lg leading-8">
-            My journey from learning web development basics to creating modern,
-            responsive, and professional full-stack applications.
+          <p className="mt-6 max-w-3xl mx-auto text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+            My journey from learning web development basics to creating modern, responsive, and professional full-stack applications.
           </p>
         </motion.div>
 
+        {/* Timeline container */}
         <div className="relative mt-28">
+          {/* Static gray timeline line track */}
+          <div className="absolute left-1/2 top-0 hidden md:block w-[3px] h-full bg-slate-200 dark:bg-white/10 -translate-x-1/2 rounded-full" />
+
+          {/* Dynamic Scroll-Drawing line track */}
           <motion.div
-            animate={{
-              opacity: [0.4, 1, 0.4],
+            style={{
+              scaleY: scaleY,
+              transformOrigin: "top"
             }}
-            transition={{
-              repeat: Infinity,
-              duration: 2,
-            }}
-            className="absolute left-1/2 top-0 hidden md:block w-1 h-full bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-500 -translate-x-1/2 rounded-full"
+            className="absolute left-1/2 top-0 hidden md:block w-[3px] h-full bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-500 -translate-x-1/2 rounded-full shadow-[0_0_10px_#22d3ee]"
           />
 
           <div className="space-y-20">
@@ -163,100 +148,85 @@ export default function JourneySection() {
                 key={index}
                 initial={{
                   opacity: 0,
-                  x: index % 2 === 0 ? -100 : 100,
+                  y: 50,
                 }}
                 whileInView={{
                   opacity: 1,
-                  x: 0,
+                  y: 0,
                 }}
                 transition={{
-                  duration: 1,
+                  duration: 0.8,
+                  delay: index * 0.1,
+                  type: "spring",
+                  stiffness: 80
                 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-100px" }}
                 className={`relative flex flex-col md:flex-row items-center ${
                   index % 2 === 0 ? "md:justify-start" : "md:justify-end"
                 }`}
               >
+                {/* Timeline Card */}
                 <motion.div
                   whileHover={{
-                    scale: 1.04,
-                    y: -15,
-                    rotate: 1,
+                    scale: 1.03,
+                    y: -8,
                   }}
                   transition={{
                     type: "spring",
-                    stiffness: 120,
+                    stiffness: 150,
+                    damping: 15
                   }}
                   className="w-full md:w-[45%] relative"
                 >
-                  <motion.div
-                    animate={{
-                      opacity: [0.4, 0.8, 0.4],
-                      scale: [1, 1.05, 1],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 3,
-                    }}
-                    className={`absolute inset-0 bg-gradient-to-r ${item.color} blur-3xl rounded-[40px] opacity-20`}
-                  />
+                  {/* Decorative glowing background mesh behind card */}
+                  <div className={`absolute inset-0 bg-gradient-to-r ${item.color} blur-2xl rounded-[40px] opacity-10 dark:opacity-15`} />
 
-                  <div className="relative bg-black/5 dark:bg-white/5 border border-gray-300 dark:border-white/10 backdrop-blur-2xl rounded-[40px] p-8 overflow-hidden">
-                    <div
-                      className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${item.color}`}
-                    />
-                    <motion.div
-                      animate={{
-                        y: [0, -10, 0],
-                        rotate: [0, 5, -5, 0],
-                      }}
-                      transition={{
-                        repeat: Infinity,
-                        duration: 4,
-                      }}
-                      className={`w-20 h-20 rounded-3xl bg-gradient-to-r ${item.color} flex items-center justify-center text-3xl text-white shadow-2xl`}
-                    >
-                      {item.icon}
-                    </motion.div>
-                    <h3 className="mt-8 text-3xl font-bold text-black dark:text-white">
-                      {item.title}
-                    </h3>
+                  <div className="relative bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-md dark:shadow-none backdrop-blur-2xl rounded-[40px] p-8 overflow-hidden">
+                    {/* Top gradient highlight strip */}
+                    <div className={`absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r ${item.color}`} />
 
-                    <p className="mt-2 text-cyan-500 font-semibold text-lg">
-                      {item.year}
-                    </p>
+                    <div className="flex gap-6 items-start">
+                      <motion.div
+                        animate={{
+                          y: [0, -6, 0],
+                        }}
+                        transition={{
+                          repeat: Infinity,
+                          duration: 4,
+                          ease: "easeInOut",
+                          delay: index * 0.5
+                        }}
+                        className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${item.color} flex items-center justify-center text-2xl text-white shadow-lg shrink-0`}
+                      >
+                        {item.icon}
+                      </motion.div>
 
-                    <p className="mt-6 text-slate-700 dark:text-slate-400 leading-8 text-lg">
+                      <div>
+                        <span className="text-cyan-600 dark:text-cyan-400 font-bold text-base">
+                          {item.year}
+                        </span>
+                        <h3 className="text-2xl font-black text-slate-800 dark:text-white mt-1">
+                          {item.title}
+                        </h3>
+                      </div>
+                    </div>
+
+                    <p className="mt-6 text-slate-600 dark:text-slate-400 leading-relaxed text-[15px]">
                       {item.description}
                     </p>
-                    <motion.div
-                      animate={{
-                        x: [0, 220, 0],
-                      }}
-                      transition={{
-                        repeat: Infinity,
-                        duration: 5,
-                        ease: "linear",
-                      }}
-                      className="absolute bottom-3 left-0 w-3 h-3 rounded-full bg-cyan-400"
-                    />
                   </div>
                 </motion.div>
-                <motion.div
-                  animate={{
-                    scale: [1, 1.4, 1],
-                    boxShadow: [
-                      "0 0 20px rgba(34,211,238,0.4)",
-                      "0 0 40px rgba(34,211,238,0.9)",
-                      "0 0 20px rgba(34,211,238,0.4)",
-                    ],
-                  }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 2,
-                  }}
-                  className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-cyan-400 border-4 border-[#050816] z-20"
-                />
+
+                {/* Timeline circle node */}
+                <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-slate-50 dark:bg-[#050816] items-center justify-center border-4 border-slate-200 dark:border-white/10 z-20">
+                  <motion.div
+                    className="w-3.5 h-3.5 rounded-full bg-cyan-400"
+                    initial={{ scale: 0.5 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
+                  />
+                </div>
               </motion.div>
             ))}
           </div>

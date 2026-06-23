@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
 import CustomCursor from "@/components/CustomCursor";
+import PageLoader from "@/components/PageLoader";
 import toast, { Toaster } from 'react-hot-toast';
 
 
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
     >
       <body>
         <Providers>       
+        <PageLoader />
         {children}
         <Toaster />
         <CustomCursor />
