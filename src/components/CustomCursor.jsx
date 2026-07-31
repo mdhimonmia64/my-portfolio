@@ -10,15 +10,10 @@ export default function AdvancedCursor() {
   const [cursorText, setCursorText] = useState("");
 
   useEffect(() => {
-    // Hide standard cursor on desktop
     document.body.style.cursor = "none";
 
     const moveCursor = (e) => {
       const { clientX, clientY } = e;
-
-      // Adjusting coordinates because top-left corner is at (clientX, clientY)
-      // Dot is 12px (w-3 h-3), center offset = -6px
-      // Ring is 40px (w-10 h-10), center offset = -20px
       gsap.to(dot.current, {
         x: clientX - 6,
         y: clientY - 6,
@@ -37,11 +32,9 @@ export default function AdvancedCursor() {
     const handleMouseOver = (e) => {
       const target = e.target;
       
-      // Find closest interactive element
       const interactiveEl = target.closest("a, button, [role='button'], input, textarea, .group");
       
       if (interactiveEl) {
-        // Expand ring and change color
         gsap.to(ring.current, {
           scale: 1.8,
           borderColor: "#22d3ee",
@@ -55,8 +48,6 @@ export default function AdvancedCursor() {
           opacity: 0,
           duration: 0.2,
         });
-
-        // Special case: Project cards or specific elements
         if (interactiveEl.classList.contains("group") && interactiveEl.closest("#projects")) {
           setCursorText("VIEW");
           gsap.to(textRef.current, {
@@ -79,7 +70,6 @@ export default function AdvancedCursor() {
       const interactiveEl = target.closest("a, button, [role='button'], input, textarea, .group");
       
       if (interactiveEl) {
-        // Reset cursor to default
         gsap.to(ring.current, {
           scale: 1,
           borderColor: "#22d3ee",
@@ -117,13 +107,11 @@ export default function AdvancedCursor() {
 
   return (
     <>
-      {/* inner dot */}
       <div
         ref={dot}
         className="fixed top-0 left-0 w-3 h-3 bg-cyan-400 rounded-full pointer-events-none z-[9999] mix-blend-difference hidden md:block"
       />
 
-      {/* outer ring */}
       <div
         ref={ring}
         className="fixed top-0 left-0 w-10 h-10 border border-cyan-400 rounded-full pointer-events-none z-[9998] opacity-80 flex items-center justify-center hidden md:block"

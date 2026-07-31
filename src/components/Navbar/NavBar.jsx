@@ -22,14 +22,11 @@ export default function NavBar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Background scroll detection
       if (window.scrollY > 50) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
-
-      // Scroll Spy detection
       const scrollPosition = window.scrollY + 200;
       for (const item of navItems) {
         const el = document.getElementById(item.id);
@@ -53,7 +50,7 @@ export default function NavBar() {
     const id = href.replace("#", "");
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80; // height of floating navbar + padding
+      const offset = 80;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -81,7 +78,6 @@ export default function NavBar() {
             : "bg-transparent border-transparent py-4 px-6"
         } flex items-center justify-between`}
       >
-        {/* Logo */}
         <Link
           href="#home"
           onClick={(e) => handleLinkClick(e, "#home")}
@@ -90,8 +86,6 @@ export default function NavBar() {
           <span>Hi</span>
           <span className="text-cyan-400 group-hover:animate-bounce">mon.</span>
         </Link>
-
-        {/* Desktop Navigation Links */}
         <ul className="hidden lg:flex items-center gap-2 bg-gray-100/50 dark:bg-white/5 border border-gray-200/50 dark:border-white/5 p-1 rounded-full">
           {navItems.map((item) => (
             <li key={item.id} className="relative">
@@ -116,8 +110,6 @@ export default function NavBar() {
             </li>
           ))}
         </ul>
-
-        {/* Theme and CV Actions */}
         <div className="hidden lg:flex items-center gap-4">
           <ModeToggle />
           <motion.a
@@ -131,7 +123,6 @@ export default function NavBar() {
           </motion.a>
         </div>
 
-        {/* Mobile Navbar Controls */}
         <div className="flex items-center gap-3 lg:hidden">
           <ModeToggle />
           <button
@@ -142,8 +133,6 @@ export default function NavBar() {
           </button>
         </div>
       </nav>
-
-      {/* Mobile Drawer Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div

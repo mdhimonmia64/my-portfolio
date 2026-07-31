@@ -2,7 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaReact, FaNodeJs, FaGithub, FaDatabase } from "react-icons/fa";
+import {FaHtml5,FaCss3Alt, FaReact, FaNodeJs, FaGithub, FaDatabase } from "react-icons/fa";
+import { SiJavascript, SiTypescript } from "react-icons/si";
+import { IoLogoJavascript } from "react-icons/io";
+
 
 import {
   SiNextdotjs,
@@ -10,7 +13,7 @@ import {
   SiMongodb,
   SiExpress,
 } from "react-icons/si";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 export default function AboutSection() {
   return (
@@ -33,9 +36,9 @@ export default function AboutSection() {
           <Image
             width={530}
             height={530}
-            src={"/mdhimonmia-remove.png"}
+            src={"/himonmia.png"}
             alt="my-image"
-            className="w-full h-auto max-w-[480px] relative z-10 drop-shadow-[0_0_40px_rgba(34,211,238,0.7)]"
+            className="w-full h-auto max-w-[480px] relative z-10 drop-shadow-[0_0_40px_rgba(34,211,238,0.7)] rounded-2xl"
           />
         </motion.div>
 
@@ -52,7 +55,7 @@ export default function AboutSection() {
           >
             About Me
           </motion.p>
-          <h1 className=" text-4xl md:text-6xl font-black leading-tight">
+          <h1 className=" text-4xl md:text-4xl font-black leading-tight">
             Passionate
             <span className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
               MERN Stack Developer
@@ -61,7 +64,7 @@ export default function AboutSection() {
           <p className=" dark:text-slate-400 text-lg leading-9">
             I’m a passionate Full Stack Developer focused on building modern,
             scalable and user-friendly web applications. I enjoy creating
-            premium UI/UX experiences with React, Next.js and Tailwind CSS while
+            premium UI/UX experiences with JavaScript.js,TypeScript, React, Next.js and Tailwind CSS while
             also building powerful backend systems using Node.js, Express.js and
             MongoDB.
           </p>
@@ -86,6 +89,22 @@ export default function AboutSection() {
             className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-6"
           >
             {[
+              {
+                icon:<FaHtml5 />,
+                name:"HTML5",
+              },
+              {
+                icon:<FaCss3Alt />,
+                name:"CSS3",
+              },
+              {
+                icon:<IoLogoJavascript />,
+                name:"JavaScript.js",
+              },
+              {
+                icon:<SiTypescript />,
+                name:"TypeScript"
+              },
               {
                 icon: <FaReact />,
                 name: "React",

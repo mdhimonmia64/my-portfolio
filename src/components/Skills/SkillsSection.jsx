@@ -31,11 +31,9 @@ export default function SkillsSection() {
       className="relative py-28 bg-slate-50 dark:bg-[#050816] text-slate-900 dark:text-white overflow-hidden transition-colors duration-500"
       id="skills"
     >
-      {/* Background gradients */}
       <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-cyan-500/10 dark:bg-cyan-500/20 blur-[140px] rounded-full" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-purple-500/10 dark:bg-purple-500/20 blur-[140px] rounded-full" />
 
-      {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -51,7 +49,6 @@ export default function SkillsSection() {
         </p>
       </motion.div>
 
-      {/* Interactive Tabs */}
       <div className="flex flex-wrap justify-center gap-2 mb-12 px-6">
         {categories.map((tab) => (
           <button
@@ -75,7 +72,6 @@ export default function SkillsSection() {
         ))}
       </div>
 
-      {/* Grid Container */}
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-6 min-h-[300px]">
         <AnimatePresence mode="popLayout">
           {filteredSkills.map((skill, index) => (
@@ -92,8 +88,6 @@ export default function SkillsSection() {
                 <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">{skill.name}</h3>
                 <span className="text-cyan-600 dark:text-cyan-400 font-black text-sm">{skill.level}%</span>
               </div>
-
-              {/* Sleek thin progress meter */}
               <div className="w-full h-2 bg-slate-200/60 dark:bg-white/10 rounded-full overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
@@ -108,7 +102,6 @@ export default function SkillsSection() {
         </AnimatePresence>
       </div>
 
-      {/* Decorative Orbs */}
       <motion.div
         animate={{ y: [0, -20, 0] }}
         transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}

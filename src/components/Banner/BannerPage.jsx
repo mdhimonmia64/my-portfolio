@@ -252,7 +252,6 @@ export default function BannerPage() {
             </motion.button>
           </div>
 
-          {/* Social Links */}
           <div className="flex gap-4 pt-12">
             {[
               {
@@ -290,8 +289,6 @@ export default function BannerPage() {
             })}
           </div>
         </motion.div>
-
-        {/* Hero Image Container */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -299,10 +296,8 @@ export default function BannerPage() {
           className="flex justify-center w-full px-4 sm:px-0"
         >
           <div className="relative w-full max-w-[400px]">
-            {/* Background Glow */}
             <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/25 to-purple-500/25 blur-[90px] rounded-full" />
 
-            {/* Rotating dashed ring */}
             <motion.div
               animate={{
                 rotate: 360,
@@ -314,11 +309,9 @@ export default function BannerPage() {
               }}
               className="absolute -inset-4 rounded-[45px] border-2 border-dashed border-cyan-400/30 dark:border-cyan-400/25 pointer-events-none"
             />
-
-            {/* Glowing borders around image wrapper */}
             <div className="relative bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow-xl backdrop-blur-xl rounded-[40px] p-3 sm:p-4">
               <Image
-                src={"/my-image.png"}
+                src={"/My-image.jpeg"}
                 alt="about"
                 width={420}
                 height={420}
@@ -327,7 +320,6 @@ export default function BannerPage() {
               />
             </div>
 
-            {/* Animated Floating Badges */}
             <motion.div
               animate={{
                 y: [0, -12, 0],
@@ -361,7 +353,6 @@ export default function BannerPage() {
         </motion.div>
       </div>
 
-      {/* Downward Indicator */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 opacity-55 text-slate-500 dark:text-slate-400">
         <span className="text-[10px] font-mono tracking-widest uppercase">Scroll Down</span>
         <motion.div
