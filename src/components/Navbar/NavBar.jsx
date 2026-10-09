@@ -115,7 +115,7 @@ export default function NavBar() {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="/MERN.pdf"
+            href="/MERN Stack Developer.pdf"
             download
             className="px-6 py-2.5 rounded-full bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-sm shadow-[0_4px_14px_rgba(34,211,238,0.3)] transition duration-300"
           >
@@ -162,7 +162,7 @@ export default function NavBar() {
 
             <div className="border-t border-gray-150 dark:border-white/10 pt-4 flex flex-col gap-4">
               <a
-                href="/MERN.pdf"
+                href="/MERN Stack Developer.pdf"
                 download
                 className="w-full py-4 rounded-2xl bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-center shadow-[0_4px_14px_rgba(34,211,238,0.3)] transition"
               >

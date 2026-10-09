@@ -161,7 +161,7 @@ export default function AboutSection() {
           </motion.div>
           <div className="flex flex-wrap gap-5 pt-7 md:pt-12">
             <motion.a
-              href="/MERN.pdf"
+              href="/MERN Stack Developer.pdf"
               download
               whileHover={{
                 scale: 1.05,
